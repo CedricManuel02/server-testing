@@ -16,8 +16,7 @@ const dbConfig = {
     host: "monorail.proxy.rlwy.net",
     user: "root",
     password: "CtXLHRlAfPkULQwnijJPbIPabukIiCfW",
-    database: "railway",
-    port: 54778
+    database: "railway"
 }
 
 const db = mysql.createPool(dbConfig);

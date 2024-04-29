@@ -12,12 +12,7 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
-const dbConfig = {
-    host: "monorail.proxy.rlwy.net",
-    user: "root",
-    password: "CtXLHRlAfPkULQwnijJPbIPabukIiCfW",
-    database: "railway"
-}
+const dbConfig = "mysql://root:CtXLHRlAfPkULQwnijJPbIPabukIiCfW@monorail.proxy.rlwy.net:54778/railway";
 
 const db = mysql.createPool(dbConfig);
 

@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 
+
 const dbConfig = {
     host: "localhost",
     user: "root",
@@ -17,7 +18,6 @@ module.exports = (query, params) => {
                 reject(err);
             }
             else{
-                console.log("Database Connected");
                 sql.query(query, params, (err, results) => {
                     if(err){
                         console.error("Query error", err);

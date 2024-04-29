@@ -1,7 +1,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 
 const port = 3001;
@@ -12,16 +12,14 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
-
-const db = mysql.createPool({
-    connectionLimit: 10,
+const dbConfig = {
     host: "monorail.proxy.rlwy.net",
-    port: 54778,
     user: "root",
     password: "CtXLHRlAfPkULQwnijJPbIPabukIiCfW",
-    database: "railway",
-    insecureAuth: true
-});
+    database: "railway"
+}
+
+const db = mysql.createPool(dbConfig);
 
 db.getConnection((err, connection) => {
     if (err) {

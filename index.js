@@ -12,16 +12,15 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
-
-const db = mysql.createPool({
-    connectionLimit: 10,
+const dbConfig = {
     host: "monorail.proxy.rlwy.net",
-    port: 54778,
     user: "root",
     password: "CtXLHRlAfPkULQwnijJPbIPabukIiCfW",
     database: "railway",
-    insecureAuth: true
-});
+    port: 54778
+}
+
+const db = mysql.createPool(dbConfig);
 
 db.getConnection((err, connection) => {
     if (err) {

@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
+require("dotenv").config();
 
-const dbConfig = "mysql://root:CtXLHRlAfPkULQwnijJPbIPabukIiCfW@monorail.proxy.rlwy.net:54778/railway";
+const dbConfig = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
 
 const db = mysql.createPool(dbConfig);
 

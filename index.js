@@ -11,9 +11,6 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
-const router = require("../server/router/router")
-app.use("/api/v1", router)
-
-app.listen(port, "0.0.0.0", () => {
+app.listen(port, () => {
     console.log("listening on port", port)
 })

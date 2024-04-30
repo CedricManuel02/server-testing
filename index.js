@@ -11,11 +11,14 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
+const getData = require("./services/getData");
 
 app.get("/test", async (req, res) => {
-   res.json({
-    "message": "Test"
-   })
+    const data = await getData()
+    res.json({
+        data: data,
+        message: "test message"
+    })
 })
 
 

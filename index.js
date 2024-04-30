@@ -11,6 +11,17 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
+const getAllData = require("./services/getData")
+
+app.get("/test", async (req, res) => {
+    const data = await getAllData()
+    res.json({
+        data: data,
+        message: "test message"
+    })
+})
+
+
 app.listen(port, () => {
     console.log("listening on port", port)
 })

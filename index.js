@@ -12,8 +12,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
 
-app.get("/", async (req, res) => {
-    console.log("test");
+app.get("/test", async (req, res) => {
+   res.json({
+    "message": "Test"
+   })
 })
 
 

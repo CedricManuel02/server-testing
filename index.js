@@ -1,8 +1,9 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
+require("dotenv").config()
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express()
 
 app.use(cors())
@@ -10,9 +11,11 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.json({urlencoded: true}))
 
-const router = require("./router/router")
+const router = require("../server/router/router")
 app.use("/api/v1", router)
 
+
+// this is my railway domain server-testing-production.up.railway.app
 
 app.listen(port, () => {
     console.log("listening on port", port)

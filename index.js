@@ -15,8 +15,6 @@ const router = require("../server/router/router")
 app.use("/api/v1", router)
 
 
-// this is my railway domain server-testing-production.up.railway.app
-
 app.listen(port, "0.0.0.0", () => {
     console.log("listening on port", port)
 })
